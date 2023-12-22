@@ -1,1 +1,2 @@
-.idea
+backend/login_signup/__pycache__/*
+backend/login_signup/migrations/__pycache__/*
