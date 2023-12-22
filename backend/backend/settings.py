@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "login_signup",
+    "jobs",
 ]
 
 MIDDLEWARE = [
