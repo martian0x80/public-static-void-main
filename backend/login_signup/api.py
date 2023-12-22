@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions, mixins
+from rest_framework import generics, permissions, mixins, authentication
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializer import RegisterSerializer, UserSerializer
@@ -14,6 +14,8 @@ class RegisterApi(APIView):
             "message": "User Created Successfully. Login to grab JWT token.",
         })
 class DeleteApi(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAdminUser]
     def get(self, request, *args, **kwargs):
         User.objects.all().delete()
         return Response({"message": "Deleted all entries."})
