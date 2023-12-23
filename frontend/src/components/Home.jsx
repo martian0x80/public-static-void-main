@@ -12,7 +12,7 @@ const Home = () => {
     const {logOut, user} = useUserAuth();
     const [jobs, setJobs] = useState([]);
     const [totalJobs, setTotalJobs] = useState(0);
-    const [display, setDisplay] = useState("block");
+    const [display, setDisplay] = useState(false);
 
     const [page, setPage] = useState(1);
     const geoLocation = useGeoLocation();
@@ -37,7 +37,7 @@ const Home = () => {
             <div className={"m-3 flex"}>
                 <Paginator page={page} setPage={setPage} count={Math.ceil(totalJobs/10)} />
                 <div className={"flex-grow"}></div>
-                <Button variant="primary" onClick={handleLogout}>
+                <Button variant="primary" onClick={() => setDisplay(prevState => !prevState)}>
                     Create Job Post
                 </Button>
                 &nbsp;

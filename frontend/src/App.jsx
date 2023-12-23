@@ -8,6 +8,9 @@ import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Home from "./components/Home.jsx";
 import Signup from "./components/Signup.jsx";
 import {GeoLocationContextProvider} from "./context/GeoLocationContext.jsx";
+import Index from "./components/Index.jsx";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
 
@@ -22,12 +25,13 @@ function App() {
                             path="/home"
                             element={
                                 <ProtectedRoute>
-                                    <Home/>
+                                    <><Header/><Home/><Footer/></>
                                 </ProtectedRoute>
                             }
                         />
-                        <Route path="/" element={<Login/>}/>
-                        <Route path="/signup" element={<Signup/>}/>
+                        <Route path={"/"} index element={<><Header/><Index/><Footer/></>} />
+                        <Route path="/signin" element={<><Header/><Login/><Footer/></>}/>
+                        <Route path="/signup" element={<><Header/><Signup/><Footer/></>}/>
                     </Routes>
                 </BrowserRouter>
             </GeoLocationContextProvider>

@@ -29,7 +29,7 @@ const Login = () => {
 
 
   return (
-    <div className={"max-w-min"}>
+    <div className={"max-w-min m-8"}>
       <div className="p-4 box">
         <h2 className="mb-3">Login</h2>
 

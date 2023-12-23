@@ -24,7 +24,7 @@ export default function CreatePost({display, geoLong, geoLat}) {
     }
 
     return (
-        <div style={{display: display}}>
+        <div style={{display: (display ? "block" : "none")}}>
             <Form onSubmit={handleSubmit}>
 
                 <Form.Group className="mb-3" controlId="formBasicJobTitle">
