@@ -4,9 +4,9 @@ from django.db import models
 
 class JobModel(models.Model):
 
-    jobID = models.UUIDField()
+    jobId = models.UUIDField()
     jobTitle = models.CharField(max_length=100)
-    companyUrl = models.URLField()
+    companyURL = models.URLField()
     company = models.CharField(max_length=100)
     salary = models.CharField(max_length=100)
     freq = models.CharField(max_length=100)

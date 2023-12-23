@@ -16,3 +16,8 @@ class JobApi(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
+    
+    def delete(self, request, pk):
+        job = JobModel.objects.get(pk=pk)
+        job.delete()
+        return Response('Item successfully deleted')

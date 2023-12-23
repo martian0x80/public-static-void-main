@@ -4,5 +4,7 @@ from .api import JobApi
 #from .api import 
 
 urlpatterns = [
-    path('getJobs', JobApi.as_view()),
+    path('getJobs', JobApi.as_view(), name='getJobs'),
+    path('addJob', JobApi.as_view(), name='addJob'),
+    path('deleteJob/<int:pk>', JobApi.as_view(), name='deleteJob'),
 ]
