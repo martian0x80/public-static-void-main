@@ -1,13 +1,25 @@
-from rest_framework import serializers
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import JobModel
 from .serializer import JobSerializer
+from rest_framework.pagination import PageNumberPagination
+
+class CustomPagination(PageNumberPagination):
+    page_size = 10
+    page_query_param = 'page'
+    page_size_query_param = 'page_size'
+    max_page_size = 20
+
 
 class JobApi(APIView):
+#    Doesn't work with APIView
+#    pagination_class = CustomPagination
     def get(self, request):
         jobs = JobModel.objects.all()
-        serializer = JobSerializer(jobs, many=True)
+        # or inherit from Pagination class
+        paginator = CustomPagination()
+        result_page = paginator.paginate_queryset(jobs, request)
+        serializer = JobSerializer(result_page, many=True)
         return Response(serializer.data)
     
     def post(self, request):
