@@ -16,11 +16,16 @@ class JobApi(APIView):
 #    pagination_class = CustomPagination
     def get(self, request):
         jobs = JobModel.objects.all()
+        totalJobs = jobs.count()
         # or inherit from Pagination class
         paginator = CustomPagination()
         result_page = paginator.paginate_queryset(jobs, request)
         serializer = JobSerializer(result_page, many=True)
-        return Response(serializer.data)
+        data = {
+            'totalJobs': totalJobs,
+            'jobs': serializer.data
+        }
+        return Response(data)
     
     def post(self, request):
         serializer = JobSerializer(data=request.data)
