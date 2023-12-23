@@ -14,7 +14,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user && user.access) navigate("/home");
-  }, []);
+  }, [navigate, user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
