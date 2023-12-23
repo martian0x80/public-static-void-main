@@ -16,7 +16,8 @@ export default function CreatePost({display, geoLong, geoLat}) {
         geoLong: geoLong,
         geoLat: geoLat
     })
-    function handleSubmit() {
+    function handleSubmit(e) {
+        e.preventDefault();
         axios.post("/api/jobs/addJob", data)
             .then(res => res.data)
             .then(res => console.log(res))
