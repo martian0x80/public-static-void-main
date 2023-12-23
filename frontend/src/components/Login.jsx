@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -29,14 +29,14 @@ const Login = () => {
 
 
   return (
-    <>
+    <div className={"max-w-min"}>
       <div className="p-4 box">
         <h2 className="mb-3">Login</h2>
 
         {error && <Alert variant="danger">{error}</Alert>}
 
         <Form onSubmit={handleSubmit}>
-          
+
           <Form.Group className="mb-3" controlId="formBasicUserName">
             <Form.Control
               placeholder="username"
@@ -65,7 +65,7 @@ const Login = () => {
       <div className="p-4 box mt-3 text-center">
         Don't have an account? <Link to="/signup">Sign up</Link>
       </div>
-    </>
+    </div>
   );
 };
 

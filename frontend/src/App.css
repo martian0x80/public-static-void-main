@@ -7,6 +7,9 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+#root {
+  width: inherit;
+}
 
 .box {
   border: 1px solid #dfdfdf;

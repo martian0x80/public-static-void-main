@@ -1,12 +1,14 @@
 import React from 'react';
 import { MapPinIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
+import "./singleJob.css"
+import {distanceBetweenCoordsInKm} from "../utility/getDistance.js";
 
-const SingleJobs = ({ job }) => {
-    const { jobId ,jobTitle, companyURL, company, salary, freq, jobType, duration} = job;
+const SingleJobs = ({ job, currentLong, currentLat }) => {
+    const { jobId ,jobTitle, companyURL, company, salary, freq, jobType, duration, geoLat, geoLong} = job;
     return (
         <div>
-            <div className='mx-auto border-2 rounded-xl items-center p-4  bg-slate-200'>
+            <div className='mx-auto border-2 rounded-xl items-center p-4 bg-slate-200'>
                 <div className='gap-4 items-center'>
                     <div className="image p-2">
                         <img src={companyURL} className='w-36'
@@ -22,12 +24,12 @@ const SingleJobs = ({ job }) => {
                                 <button className='border-2 px-6 py-2 bg-white rounded-lg mb-4'>{jobType}</button>
                             </div>
                         </div>
-                        <div className='md:flex'>
+                        <div className='md:flex align-items-end'>
                             <p className='flex items-center mr-6'>
                                 <MapPinIcon className="h-6 w-6 text-blue-500" />
-                                {duration}
+                                {distanceBetweenCoordsInKm(geoLat, geoLong, currentLat, currentLong)} KM
                             </p>
-                            <p className='flex items-center mt-2 md:mt-0'>
+                            <p className='flex items-center justify-content-between mt-2 md:mt-0'>
                                 <CurrencyDollarIcon className="h-6 w-6 text-blue-500" />
                                 Salary : {salary}
                             </p>

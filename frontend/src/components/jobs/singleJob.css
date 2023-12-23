@@ -1,0 +1,48 @@
+@layer btn {
+    .btn {
+        display: inline-flex;
+        flex-shrink: 0;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;
+        transition-duration: .2s;
+        transition-timing-function: cubic-bezier(.4,0,.2,1);
+        border-radius: 8px;
+        height: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: .875rem;
+        line-height: 1em;
+        min-height: 3rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration-line: none;
+        animation: button-pop .25s ease-out;
+        --tw-border-opacity: 1;
+        --tw-bg-opacity: 1;
+        background-color: rgb(61, 68, 81);
+        --tw-text-opacity: 1;
+        color: white !important;
+    }
+    a.custom-btn {
+        color: white !important;
+    }
+
+    button.custom-btn {
+        color: white;
+    }
+}
+
+.custom-btn{
+    @apply btn border-0 bg-gradient-to-r from-indigo-500 to-indigo-800
+}
+
+.custom-text{
+    @apply inline-block bg-gradient-to-r from-indigo-500 to-indigo-800 bg-clip-text text-transparent
+}
