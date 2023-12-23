@@ -4,7 +4,7 @@ from django.db import models
 
 class JobModel(models.Model):
 
-    jobId = models.UUIDField()
+    jobId = models.CharField(max_length=100)
     jobTitle = models.CharField(max_length=100)
     companyURL = models.URLField()
     company = models.CharField(max_length=100)
