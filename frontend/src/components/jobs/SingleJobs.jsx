@@ -2,10 +2,9 @@ import React from 'react';
 import { MapPinIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 import "./singleJob.css"
-import {distanceBetweenCoordsInKm} from "../utility/getDistance.js";
 
 const SingleJobs = ({ job, currentLong, currentLat }) => {
-    const { jobId ,jobTitle, companyURL, company, salary, freq, jobType, duration, geoLat, geoLong} = job;
+    const { jobId ,jobTitle, companyURL, company, salary, freq, jobType, duration, geoLat, geoLong, distance} = job;
     return (
         <div>
             <div className='mx-auto border-2 rounded-xl items-center p-4 bg-slate-200'>
@@ -27,7 +26,7 @@ const SingleJobs = ({ job, currentLong, currentLat }) => {
                         <div className='md:flex align-items-end'>
                             <p className='flex items-center mr-6'>
                                 <MapPinIcon className="h-6 w-6 text-blue-500" />
-                                {distanceBetweenCoordsInKm(geoLat, geoLong, currentLat, currentLong)} KM
+                                {distance} KM
                             </p>
                             <p className='flex items-center justify-content-between mt-2 md:mt-0'>
                                 <CurrencyDollarIcon className="h-6 w-6 text-blue-500" />
