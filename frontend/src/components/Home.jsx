@@ -18,13 +18,18 @@ const Home = () => {
     const geoLocation = useGeoLocation();
 
     useEffect(() => {
-        axios.get(`/api/jobs/getJobs?page=${page}`)
+        if (geoLocation == null) return () => {}
+        axios.get(`/api/jobs/getJobs`, {params: {
+            longitude: geoLocation.longitude,
+            latitude: geoLocation.latitude,
+            page
+        }})
             .then((res) => res.data)
             .then((data) => {
                 setJobs(data.jobs);
                 setTotalJobs(data.totalJobs);
             })
-    }, [page]);
+    }, [page, geoLocation]);
 
     const handleLogout = async () => {
         if (await logOut()) window.location.reload();
